@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+   function computerPlay(){
+    let computerThrow = Math.floor(Math.random() * 3);
+
+if (computerThrow == 0) {
+     let computerPlayStr = "rock";
+    return computerPlayStr;
+    
+}
+else if (computerThrow == 1)
+{
+     let computerPlayStr = "paper";
+return computerPlayStr;
+}
+else {
+     let computerPlayStr = "scissors";
+    return computerPlayStr;
+
+}
+
+       
+   }
+
+  
+   function playRound(playerSelection,computerSelection){
+       playerSelection = playerSelection.toLowerCase();
+       computerSelection = computerPlay();
+
+
+
+    if (playerSelection === 'rock' && computerSelection === 'rock' || 
+    playerSelection === 'paper' && computerSelection === 'paper' ||
+    playerSelection === 'scissors' && computerSelection === 'paper'
+    ) {
+        return ('TIE');
+    }
+
+    else if (playerSelection === 'rock' && computerSelection === 'scissors' || 
+    playerSelection === 'paper' && computerSelection === 'rock' ||
+    playerSelection === 'scissors' && computerSelection === 'paper') {
+        return ('YOU WIN');
+    }
+    
+    else {
+
+        return ('YOU LOSE')
+    }
+    
+       }
+  
+let humanScore = 0;
+let computerScore = 0;
+let gameTotal = 0
+
+
+function game(){
+   let playerSelection = prompt("ROCK PAPER SCISSORS, SHOOT!");
+   let computerSelection = computerPlay();
+
+ 
+playRound(playerSelection,computerSelection)
+let game1 = playRound(playerSelection,computerSelection);
+
+
+if (game1 === 'YOU WIN') {
+    humanScore = humanScore + 1;
+    console.log(game1);
+    console.log ("Human Score is "+ humanScore + " Computer Score is " + computerScore);
+
+}
+else if (game1 === 'YOU LOSE') {
+    computerScore = computerScore + 1;
+    console.log(game1);
+
+    console.log("Computer Score is " + computerScore + " Your Score is " + humanScore);
+}
+else if (game1 === 'TIE') {
+    console.log(game1);
+
+    console.log("It was a Tie." + " The Score is Human = " + humanScore + " Computer = "+ computerScore);
+}
+
+if (humanScore === 5 ) {
+    console.log ("Game over, YOU WIN")
+}
+else if (computerScore === 5) {
+    console.log ("Game Over, Computer Wins")
+}
+
+} 
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
